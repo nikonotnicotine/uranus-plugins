@@ -2,5 +2,21 @@
   "$schema": "./schema/plugins.schema.json",
   "version": 1,
   "updatedAt": "2026-11-24",
-  "plugins": []
+  "plugins": [
+    {
+      "id": "uranus-plugin-hello",
+      "title": "Hello 示例插件",
+      "desc": "一个什么都不做的示例插件，用来验证插件市场的流程和控制台的渲染。装上之后只会在浏览器控制台里打一行字。",
+      "author": "https://github.com/nikonotnicotine",
+      "repo": "https://github.com/nikonotnicotine/uranus-plugin-hello",
+      "license": "MIT",
+      "tags": [
+        "工具"
+      ],
+      "lockedVersion": "v1.0.0",
+      "reviewedAt": "2026-11-24",
+      "reviewedCommit": "f3ce1f2f14186bcb39d396e23ccddceab8e16e48",
+      "addedAt": "2026-11-24"
+    }
+  ]
 }
