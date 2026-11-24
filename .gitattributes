@@ -1,0 +1,13 @@
+# 换行符统一成 LF。
+#
+# 这是个公开的协作仓库 —— 插件作者在 Mac、Linux、Windows 上都有，不钉住的话
+# 一个人在 Windows 上改一行，diff 里会显示整个文件都变了，审核根本没法看。
+#
+# `text=auto eol=lf`：入库一律 LF，检出时也给 LF（Windows 上的编辑器现在都认）。
+* text=auto eol=lf
+
+# JSON 是这个仓库的产物，diff 要能一眼看懂
+*.json text eol=lf
+*.md   text eol=lf
+*.yml  text eol=lf
+*.mjs  text eol=lf

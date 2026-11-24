@@ -1,0 +1,42 @@
+name: 举报插件
+description: 发现某个已上架的插件有安全问题、付费内容或协议问题
+title: "[举报] "
+labels: ["举报"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        如果是**安全问题**（插件在偷数据、发恶意请求、装后门），请不要公开提 issue ——
+        发邮件到 SECURITY.md 里的地址，我们核实后会直接下架并通知所有装过它的用户。
+
+        这里适合的是：付费内容、协议不符、描述与实际不符、仓库已失效这类可以公开讨论的问题。
+
+  - type: input
+    id: plugin-id
+    attributes:
+      label: 插件 id
+      description: plugins.json 里的那个 id
+    validations:
+      required: true
+
+  - type: dropdown
+    id: reason
+    attributes:
+      label: 问题类型
+      options:
+        - 含付费内容（收费功能 / 订阅 / 付费解锁 / 引流到付费服务）
+        - 协议问题（没有 LICENSE / 与声明不符 / 抄了别人的代码）
+        - 描述与实际不符
+        - 仓库已删除或转为私有
+        - 插件已经不能用了
+        - 其它
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: 具体情况
+      description: 能给出链接、截图、或仓库里的具体文件路径最好
+    validations:
+      required: true

@@ -1,0 +1,63 @@
+#  PR 自动校验。
+#
+#  这里只拦**机器能查的东西**：格式、链接通不通、LICENSE 在不在、
+#  commit 和 tag 是不是真的。
+#
+#  ⚠️ 全绿**不等于**可以合并。代码有没有在偷数据、描述和实际对不对得上、
+#  有没有付费内容，这些只有人能看 —— 见 README 的「审核看什么」。
+#  别因为 CI 是绿的就直接点合并。
+
+name: 校验索引
+
+on:
+  pull_request:
+    paths:
+      - "plugins.json"
+      - "delisted.json"
+      - "schema/**"
+      - "scripts/**"
+      - ".github/workflows/validate.yml"
+  push:
+    branches: [main]
+  # 手动跑：用来定期体检，查出那些「合并时还在、现在已经没了」的仓库
+  workflow_dispatch:
+  schedule:
+    # 每周一早上八点（UTC+8）过一遍全部条目，把失效的仓库翻出来
+    - cron: "0 0 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: 检查排序和字段顺序
+        run: node scripts/sort.mjs --check
+
+      - name: 校验（含联网检查）
+        run: node scripts/validate.mjs
+        env:
+          # 只用来抬高 API 限额，不需要任何写权限
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 提醒审核者
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "### 自动校验通过 ✅" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "**但这只说明格式和链接没问题。** 合并前仍然要人工看：" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 仓库里确实有插件，不是空仓库占位" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 描述和仓库实际做的事对得上" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 声明的权限和代码实际行为一致" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 读 data.config.json / auth.json / 发外部请求的地方都看明白了" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 代码可读，没有混淆或压缩" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 无付费内容" >> "$GITHUB_STEP_SUMMARY"
+          echo "- reviewedAt / reviewedCommit 已改成实际过审的日期和 SHA" >> "$GITHUB_STEP_SUMMARY"

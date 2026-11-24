@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/nikonotnicotine/uranus-plugins/schema/plugins.schema.json",
+  "title": "Uranus 插件市场索引",
+  "description": "一份社区插件的链接目录。这里只有条目，没有插件代码 —— 代码在各作者自己的仓库。",
+  "type": "object",
+  "required": ["version", "updatedAt", "plugins"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": {
+      "description": "索引格式版本。字段含义变了才加，加条目不算。",
+      "const": 1
+    },
+    "updatedAt": {
+      "description": "索引最后一次变动的日期。CI 在合并时自动改写，PR 里不用管。",
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "plugins": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/entry" }
+    }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": ["id", "title", "desc", "author", "repo", "license", "reviewedAt", "reviewedCommit"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "插件唯一标识。小写字母、数字和连字符，和插件 manifest.json 里的 id 必须一致 —— 客户端靠它判断「这个你已经装了」。",
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]{2,63}$"
+        },
+        "title": {
+          "description": "展示名称，中英文都行。市场卡片的标题。",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "desc": {
+          "description": "这个插件做什么。一两句话说清楚，不要写安装步骤和更新日志 —— 那些写在你自己仓库的 README 里。",
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 200
+        },
+        "author": {
+          "description": "作者的 GitHub 主页链接。必须和 repo 的 owner 是同一个账号 —— CI 会比对。",
+          "type": "string",
+          "pattern": "^https://github\\.com/[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}/?$"
+        },
+        "repo": {
+          "description": "插件代码所在的 GitHub 仓库，必须公开。用户点卡片就跳到这里。",
+          "type": "string",
+          "pattern": "^https://github\\.com/[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}/[A-Za-z0-9._-]{1,100}$"
+        },
+        "license": {
+          "description": "插件采用的开源协议，SPDX 标识符。必须是 OSI 认证的协议，且仓库根目录要有对应的 LICENSE 文件。",
+          "type": "string",
+          "enum": [
+            "MIT",
+            "Apache-2.0",
+            "BSD-2-Clause",
+            "BSD-3-Clause",
+            "ISC",
+            "MPL-2.0",
+            "GPL-2.0-only",
+            "GPL-2.0-or-later",
+            "GPL-3.0-only",
+            "GPL-3.0-or-later",
+            "LGPL-2.1-only",
+            "LGPL-2.1-or-later",
+            "LGPL-3.0-only",
+            "LGPL-3.0-or-later",
+            "AGPL-3.0-only",
+            "AGPL-3.0-or-later",
+            "Unlicense",
+            "0BSD"
+          ]
+        },
+        "tags": {
+          "description": "分类标签，市场面板用来筛选。最多 5 个。",
+          "type": "array",
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["界面", "主题", "聊天增强", "角色", "世界书", "预设", "工具", "数据", "实验性"]
+          }
+        },
+        "homepage": {
+          "description": "可选。插件自己的文档站或说明页，有的话卡片上多给一个链接。",
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "lockedVersion": {
+          "description": "可选，但强烈建议填。填了的话，目录指向这个固定的 release tag 而不是仓库主页 —— 用户下载到的永远是过审的那一份，作者之后改主分支不会影响已上架的版本。想更新就提 PR 改这里，走一次复审。卡片上会标「已锁定版本」。",
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"
+        },
+        "reviewedAt": {
+          "description": "过审日期。由审核者在合并前填写 —— 作者提 PR 时填自己提交的日期即可，审核者会改成实际过审的日期。",
+          "type": "string",
+          "format": "date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "reviewedCommit": {
+          "description": "过审时看的那个 commit 的完整 SHA（40 位）。市场面板会拿它和仓库最新 commit 比，告诉用户「过审后作者又提交了 N 次」。这是链接目录模式下唯一能让用户察觉插件被改过的办法。",
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "addedAt": {
+          "description": "首次收录日期。CI 在首次合并时自动填，之后不再变动。",
+          "type": "string",
+          "format": "date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        }
+      }
+    }
+  }
+}

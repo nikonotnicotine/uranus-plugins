@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 我想上架插件
+    url: https://github.com/nikonotnicotine/uranus-plugins/blob/main/README.md#怎么上架
+    about: 上架走 Pull Request，不走 issue。点这里看步骤。
+  - name: 安全问题（请勿公开）
+    url: https://github.com/nikonotnicotine/uranus-plugins/blob/main/SECURITY.md
+    about: 插件在偷数据、发恶意请求、装后门 —— 走私下渠道，核实后直接下架。
+  - name: Uranus 本体的问题
+    url: https://github.com/nikonotnicotine/Uranus_Imessage/issues
+    about: 这个仓库只是插件目录。主程序的 bug 提到主仓库去。

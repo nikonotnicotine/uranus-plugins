@@ -1,0 +1,16 @@
+{
+  "name": "uranus-plugins",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Uranus 插件市场的链接目录。这里没有插件代码，只有索引。",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/sort.mjs --check && node scripts/validate.mjs",
+    "check:offline": "node scripts/sort.mjs --check && node scripts/validate.mjs --offline",
+    "sort": "node scripts/sort.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "$schema": "./schema/plugins.schema.json",
+  "version": 1,
+  "updatedAt": "2026-11-24",
+  "plugins": []
+}
