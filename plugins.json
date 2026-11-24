@@ -17,6 +17,23 @@
       "reviewedAt": "2026-11-24",
       "reviewedCommit": "ddfc5da8d9ccdd059caa69835fd50d28ccd37998",
       "addedAt": "2026-11-24"
+    },
+    {
+      "id": "uranus-plugin-offline-deco",
+      "title": "线下剧情增强",
+      "desc": "线下剧情两件套：页面右缘四个半透明圆钮（回顶 / 上一条我的发言 / 下一条我的发言 / 跳到最新），长剧情不用一指一指往上划；「线下模式」标题旁一个「样式」按钮，实时预览并分别调两侧气泡的底色、透明度、边框、文字色和圆角，改完即时生效且自动存服务端，手机电脑同一份。",
+      "author": "https://github.com/zyeonheenim",
+      "repo": "https://github.com/zyeonheenim/uranus-plugin-offline-deco",
+      "license": "MIT",
+      "tags": [
+        "界面",
+        "工具"
+      ],
+      "homepage": "https://zyeonheenim.github.io/uranus-plugin-offline-deco/%E8%B6%85%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E%E4%B9%A6.html",
+      "lockedVersion": "v2.0.0",
+      "reviewedAt": "2026-11-24",
+      "reviewedCommit": "705d1fec3e1eec6402511df321cf61290663fdd2",
+      "addedAt": "2026-11-24"
     }
   ]
 }
