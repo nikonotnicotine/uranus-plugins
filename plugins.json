@@ -6,16 +6,16 @@
     {
       "id": "uranus-plugin-hello",
       "title": "Hello 示例插件",
-      "desc": "一个什么都不做的示例插件，用来验证插件市场的流程和控制台的渲染。装上之后只会在浏览器控制台里打一行字。",
+      "desc": "一个几乎什么都不做的示例插件，用来验证插件市场的流程、控制台的渲染和插件配置的表单。",
       "author": "https://github.com/nikonotnicotine",
       "repo": "https://github.com/nikonotnicotine/uranus-plugin-hello",
       "license": "MIT",
       "tags": [
         "工具"
       ],
-      "lockedVersion": "v1.0.0",
+      "lockedVersion": "v1.1.0",
       "reviewedAt": "2026-11-24",
-      "reviewedCommit": "f3ce1f2f14186bcb39d396e23ccddceab8e16e48",
+      "reviewedCommit": "ddfc5da8d9ccdd059caa69835fd50d28ccd37998",
       "addedAt": "2026-11-24"
     }
   ]

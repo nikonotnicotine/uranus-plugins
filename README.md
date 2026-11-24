@@ -58,7 +58,7 @@ CC-BY-NC 这类「禁止商用」的授权**不是**开源协议，不收。
 
 ## 怎么上架
 
-**上架走 Pull Request，不走 issue。**
+**上架走 Pull Request，不走 issue。** 还没写插件的话先看[怎么写一个插件](WRITING-PLUGINS.md)。
 
 1. 把插件代码推到你自己的 GitHub 仓库（公开），根目录放好 `LICENSE`。
 
