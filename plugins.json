@@ -19,23 +19,6 @@
       "addedAt": "2026-11-24"
     },
     {
-      "id": "uranus-plugin-offline-deco",
-      "title": "线下剧情增强",
-      "desc": "线下剧情两件套：页面右缘四个半透明圆钮（回顶 / 上一条我的发言 / 下一条我的发言 / 跳到最新），长剧情不用一指一指往上划；「线下模式」标题旁一个「样式」按钮，实时预览并分别调两侧气泡的底色、透明度、边框、文字色和圆角，改完即时生效且自动存服务端，手机电脑同一份。",
-      "author": "https://github.com/zyeonheenim",
-      "repo": "https://github.com/zyeonheenim/uranus-plugin-offline-deco",
-      "license": "MIT",
-      "tags": [
-        "界面",
-        "工具"
-      ],
-      "homepage": "https://zyeonheenim.github.io/uranus-plugin-offline-deco/%E8%B6%85%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E%E4%B9%A6.html",
-      "lockedVersion": "v2.0.1",
-      "reviewedAt": "2026-11-24",
-      "reviewedCommit": "b3f9b0ab79d4eb42e9cfa3e657102ac671037444",
-      "addedAt": "2026-11-24"
-    },
-    {
       "id": "uranus-plugin-log-drawer",
       "title": "常驻日志抽屉",
       "desc": "在任意页面角落钉一个实时运行日志小气泡。五级日志筛选、关键词搜索、暂停/清空、错误标红、拖动定位与模型快切；等 AI 出字时不用切去控制台就能看清是慢还是断了。",
@@ -50,6 +33,23 @@
       "lockedVersion": "v2.0.2",
       "reviewedAt": "2026-11-24",
       "reviewedCommit": "dea92ff539bb4709c512a692599ecc141fb1d792",
+      "addedAt": "2026-11-24"
+    },
+    {
+      "id": "uranus-plugin-offline-deco",
+      "title": "线下剧情增强",
+      "desc": "线下剧情两件套：页面右缘四个半透明圆钮（回顶 / 上一条我的发言 / 下一条我的发言 / 跳到最新），长剧情不用一指一指往上划；「线下模式」标题旁一个「样式」按钮，实时预览并分别调两侧气泡的底色、透明度、边框、文字色和圆角，改完即时生效且自动存服务端，手机电脑同一份。",
+      "author": "https://github.com/zyeonheenim",
+      "repo": "https://github.com/zyeonheenim/uranus-plugin-offline-deco",
+      "license": "MIT",
+      "tags": [
+        "界面",
+        "工具"
+      ],
+      "homepage": "https://zyeonheenim.github.io/uranus-plugin-offline-deco/%E8%B6%85%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E%E4%B9%A6.html",
+      "lockedVersion": "v2.0.1",
+      "reviewedAt": "2026-11-24",
+      "reviewedCommit": "b3f9b0ab79d4eb42e9cfa3e657102ac671037444",
       "addedAt": "2026-11-24"
     }
   ]
