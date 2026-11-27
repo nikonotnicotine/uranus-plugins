@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/plugins.schema.json",
   "version": 1,
-  "updatedAt": "2026-11-24",
+  "updatedAt": "2026-11-25",
   "plugins": [
     {
       "id": "uranus-plugin-hello",
@@ -16,6 +16,23 @@
       "lockedVersion": "v1.1.0",
       "reviewedAt": "2026-11-24",
       "reviewedCommit": "ddfc5da8d9ccdd059caa69835fd50d28ccd37998",
+      "addedAt": "2026-11-24"
+    },
+    {
+      "id": "uranus-plugin-log-drawer",
+      "title": "常驻日志抽屉",
+      "desc": "在任意页面角落钉一个实时运行日志小气泡。五级日志筛选、关键词搜索、暂停/清空、错误标红、拖动定位与模型快切；等 AI 出字时不用切去控制台就能看清是慢还是断了。",
+      "author": "https://github.com/zyeonheenim",
+      "repo": "https://github.com/zyeonheenim/uranus-plugin-log-drawer",
+      "license": "MIT",
+      "tags": [
+        "界面",
+        "工具"
+      ],
+      "homepage": "https://github.com/zyeonheenim/uranus-plugin-log-drawer/blob/main/GUIDE-%E8%B6%85%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E%E4%B9%A6.html",
+      "lockedVersion": "v2.0.2",
+      "reviewedAt": "2026-11-24",
+      "reviewedCommit": "dea92ff539bb4709c512a692599ecc141fb1d792",
       "addedAt": "2026-11-24"
     },
     {
